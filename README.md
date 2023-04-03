@@ -15,3 +15,7 @@ despite the fact that it implements exactly the same API.
 1. Clone this repository
 2. Install dependencies `npm install`
 3. Open http://localhost:3000 in your browser
+
+
+![image](https://user-images.githubusercontent.com/4447392/229648146-67a13bad-84c2-4096-a463-77d174ba867f.png)
+
