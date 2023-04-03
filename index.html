@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WebBlob Experiment</title>
+    <script src="./WebBlob.js"></script>
+  </head>
+  <body>
+    <h1>WebBlob Experiment</h1>
+
+    <button onclick="uploadWebBlob()">Upload with WebBlob</button>
+    <button onclick="uploadBlob()">Upload with Blob</button>
+
+    <h4>Response</h4>
+    <div id="response"></div>
+
+    <script type="application/javascript">
+      async function getWebBlob () {
+        const resourceUrl = new URL("https://huggingface.co/spaces/aschen/push-model-from-web/raw/main/mobilenet/model.json");
+
+        const webblob = await WebBlob.create(resourceUrl);
+
+        return webblob;
+      }
+
+      async function uploadWebBlob() {
+        document.getElementById("response").innerHTML = "";
+
+        const webblob = await getWebBlob();
+
+        try {
+          const response = await fetch("http://localhost:3000/upload", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: webblob
+          })
+
+          document.getElementById("response").innerHTML = await response.text();
+        }
+        catch (error) {
+          document.getElementById("response").innerHTML = error;
+        }
+      }
+
+      async function uploadBlob() {
+        document.getElementById("response").innerHTML = "";
+
+        const webblob = await getWebBlob();
+
+        const blob = new Blob([await webblob.arrayBuffer()])
+
+        try {
+          const response = await fetch("http://localhost:3000/upload", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: blob
+          })
+
+          document.getElementById("response").innerHTML = await response.text();
+        }
+        catch (error) {
+          document.getElementById("response").innerHTML = error;
+        }
+      }
+</script>
+  </body>
+</html>
