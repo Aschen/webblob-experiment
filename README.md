@@ -18,3 +18,5 @@ despite the fact that it implements exactly the same API.
 4. Click "Upload with Blob" or "Upload with WebBlob"
 
 When uploading with a WebBlob as the `body` of `fetch`, the request received by the server does not contains any data in the body.
+
+![image](https://user-images.githubusercontent.com/4447392/229648146-67a13bad-84c2-4096-a463-77d174ba867f.png)
