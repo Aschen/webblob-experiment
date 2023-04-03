@@ -15,3 +15,6 @@ despite the fact that it implements exactly the same API.
 1. Clone this repository
 2. Install dependencies `npm install`
 3. Open http://localhost:3000 in your browser
+4. Click "Upload with Blob" or "Upload with WebBlob"
+
+When uploading with a WebBlob as the `body` of `fetch`, the request received by the server does not contains any data in the body.
