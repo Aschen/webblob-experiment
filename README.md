@@ -10,12 +10,15 @@ The goal is to be able to use `WebBlob` as a replacement of `Blob` in API such a
 Unfortunately, it seems like Firefox and Chrome does not support this extended Blob,
 despite the fact that it implements exactly the same API.
 
+Thus, it does works with Node.js fetch implementation.
+
 ## Run the experiment
 
 1. Clone this repository
 2. Install dependencies `npm install`
-3. Open http://localhost:3000 in your browser
-4. Click "Upload with Blob" or "Upload with WebBlob"
+3. Run the server `node server.js`
+4. Open http://localhost:3000 in your browser
+5. Click "Upload with Blob" or "Upload with WebBlob"
 
 When uploading with a WebBlob as the `body` of `fetch`, the request received by the server does not contains any data in the body.
 
