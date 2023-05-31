@@ -13,6 +13,7 @@ despite the fact that it implements exactly the same API.
 Thus, it does works with Node.js fetch implementation.
 
 https://bugzilla.mozilla.org/show_bug.cgi?id=1826243
+
 https://bugs.chromium.org/p/chromium/issues/detail?id=1430298
 
 ## Run the experiment
